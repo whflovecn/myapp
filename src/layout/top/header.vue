@@ -44,7 +44,7 @@
           round
           fab-mini
           class="bg-light-blue-10"
-          @click="openDlg('todo', 'right')"
+          @click="openDrawer('todo')"
           icon="list"
         >
           <q-badge v-show="$store.state.todoList" color="red" floating>{{
@@ -60,7 +60,7 @@
           fab-mini
           class="bg-green-14"
           icon="textsms"
-          @click="openDlg('msg', 'right')"
+          @click="openDrawer('msg')"
         >
           <q-badge v-show="$store.getters.msgCount" color="red" floating>
               {{$store.getters.msgCount}}
@@ -180,9 +180,8 @@ export default {
     }
   },
   methods: {
-    openDlg(dlg, position) {
-      console.log(position);
-      this.$emit("openDialog", dlg, position);
+    openDrawer(dlg) {
+      this.$emit("openDrawer", dlg);
     },
     openSubSys(e) {
       console.log(this.active);
